@@ -1,0 +1,8 @@
+<style>
+  .round-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+</style>
+<img src="manisha prot.jpg" alt="My Photo" class="round-img">
