@@ -35,25 +35,25 @@ navLinks.forEach((link,idx)=>{
     });
 });
 
-logoLink.addEventListener('click',()=>{
-    if(!navLinks[0].classList.contains('active'))
-    {
-        activePage();
-        navLinks[0].classList.add('active');
+// logoLink.addEventListener('click',()=>{
+//     if(!navLinks[0].classList.contains('active'))
+//     {
+//         activePage();
+//         navLinks[0].classList.add('active');
 
-        setTimeout(()=>{
-            sections[0].classList.add('active');
-        },1100);
-    }
-});
+//         setTimeout(()=>{
+//             sections[0].classList.add('active');
+//         },1100);
+//     }
+// });
 
-const arrowRight=document.querySelector ('.portfolio-box .navigation .arrow-right');
-const arrowLeft=document.querySelector ('.portfolio-box .navigation .arrow-left');
+const arrowRight=document.querySelector('.portfolio-box .navigation .arrow-right');
+const arrowLeft=document.querySelector('.portfolio-box .navigation .arrow-left');
 let index=0;
 const activePortfolio = () => {
     const imgSlide=document.querySelector('.portfolio-carousel .img-slide');
     const portfolioDetails=document.querySelectorAll('.portfolio-details');
-    imgSlide.style.transform='translateX(calc(${index * -100}% - ${index * 2}rem))';
+    imgSlide.style.transform=`translateX(calc(${index * -100}% - ${index * 2}rem))`;
     portfolioDetails.forEach(detail =>{
         detail.classList.remove('active');
     });
@@ -64,6 +64,8 @@ arrowRight.addEventListener('click',() => {
     if(index<4)
     {
         index++;
+        arrowLeft.classList.remove('disabled');
+
     }
     else{
         index=5;
@@ -80,6 +82,7 @@ arrowLeft.addEventListener('click',() => {
     }
     else{
         index=0;
+        arrowLeft.classList.add('disabled');
     }
 
     activePortfolio();
