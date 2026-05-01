@@ -1,36 +1,35 @@
 const navLinks = document.querySelectorAll('header nav a');
-const  logoLinks = document.querySelector('.logo');
+const logoLinks = document.querySelector('.logo');
 const sections = document.querySelectorAll('section');
-const activePage= () =>{
-    const header=document.querySelector('header');
-    const barsBox=document.querySelector('.bars-box');
-    
+const activePage = () => {
+    const header = document.querySelector('header');
+    const barsBox = document.querySelector('.bars-box');
+
     header.classList.remove('active');
-    setTimeout(()=>{
+    setTimeout(() => {
         header.classList.add('active');
-    },1100);
-    navLinks.forEach(link=>{
+    }, 1100);
+    navLinks.forEach(link => {
         link.classList.remove('active');
     });
 
     barsBox.classList.remove('active');
-    setTimeout(()=>{
+    setTimeout(() => {
         barsBox.classList.add('active');
-    },1100);
-    sections.forEach(section=>{
+    }, 1100);
+    sections.forEach(section => {
         section.classList.remove('active');
     });
 }
-navLinks.forEach((link,idx)=>{
-    link.addEventListener('click',()=>{
-        if(!link.classList.contains('active'))
-        {
+navLinks.forEach((link, idx) => {
+    link.addEventListener('click', () => {
+        if (!link.classList.contains('active')) {
             activePage();
             link.classList.add('active');
 
-            setTimeout(()=>{
+            setTimeout(() => {
                 sections[idx].classList.add('active');
-            },1100);
+            }, 1100);
         }
     });
 });
@@ -47,41 +46,39 @@ navLinks.forEach((link,idx)=>{
 //     }
 // });
 
-const arrowRight=document.querySelector('.portfolio-box .navigation .arrow-right');
-const arrowLeft=document.querySelector('.portfolio-box .navigation .arrow-left');
-let index=0;
+const arrowRight = document.querySelector('.portfolio-box .navigation .arrow-right');
+const arrowLeft = document.querySelector('.portfolio-box .navigation .arrow-left');
+let index = 0;
 const activePortfolio = () => {
-    const imgSlide=document.querySelector('.portfolio-carousel .img-slide');
-    const portfolioDetails=document.querySelectorAll('.portfolio-details');
-    imgSlide.style.transform=`translateX(calc(${index * -100}% - ${index * 2}rem))`;
-    portfolioDetails.forEach(detail =>{
+    const imgSlide = document.querySelector('.portfolio-carousel .img-slide');
+    const portfolioDetails = document.querySelectorAll('.portfolio-details');
+    imgSlide.style.transform = `translateX(calc(${index * -100}% - ${index * 2}rem))`;
+    portfolioDetails.forEach(detail => {
         detail.classList.remove('active');
     });
     portfolioDetails[index].classList.add('active');
 
 }
-arrowRight.addEventListener('click',() => {
-    if(index<4)
-    {
+arrowRight.addEventListener('click', () => {
+    if (index < 2) {
         index++;
         arrowLeft.classList.remove('disabled');
 
     }
-    else{
-        index=5;
+    else {
+        index = 3;
         arrowRight.classList.add('disabled');
     }
 
     activePortfolio();
 });
-arrowLeft.addEventListener('click',() => {
-    if(index>1)
-    {
+arrowLeft.addEventListener('click', () => {
+    if (index > 1) {
         index--;
         arrowRight.classList.remove('disabled');
     }
-    else{
-        index=0;
+    else {
+        index = 0;
         arrowLeft.classList.add('disabled');
     }
 
