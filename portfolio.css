@@ -360,28 +360,40 @@ section.active{
     padding-bottom:2rem;
 }
 .portfolio-box .portfolio-carousel{
-    width: 125rem;
-    height:58rem;
+    width: 100%;
+    max-width: 1200px;
+    height: 450px;
+    margin: auto;
+    overflow: hidden;
     border-radius: 1rem;
+}
+
+.portfolio-carousel .img-slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    height: 100%;
+}
+
+.portfolio-carousel .img-item{
+    width: 350px;
+    height: 100%;
+    display: flex;
+}
+
+.image-box{
+    flex: 1;
+    height: 100%;
+    border-radius: 10px;
     overflow: hidden;
 }
-.portfolio-carousel .img-slide{
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 100%;
-    gap: 2rem;
-    height: inherit;
-    transition: .5s;
-}
-.portfolio-carousel .img-item{
-    height: inherit;
-}
+
 .portfolio-carousel .img-item img{
-    display: block;
-    width: 100%;
+    width: 110%;
     height: 100%;
-    object-fit: cover;
     border-radius: 1rem;
+    display: block;
 }
 .portfolio-box .navigation{
     text-align: right;
@@ -473,4 +485,9 @@ section.active{
 .contact-box .btn{
     margin-top: 2rem;
     cursor: pointer;
+}
+.pdf{
+    border: .2rem ;
+    border-radius: 1rem;
+    display: block;
 }
