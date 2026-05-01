@@ -85,10 +85,10 @@ arrowLeft.addEventListener('click', () => {
     activePortfolio();
 });
 
-// MOBILE MENU TOGGLE
+// MENU TOGGLE WORKING CODE
 const menuIcon = document.querySelector('#menu-icon');
 const navbar = document.querySelector('.navbar');
 
-menuIcon.onclick = () => {
+menuIcon.addEventListener('click', () => {
     navbar.classList.toggle('active');
-};
+});
