@@ -23,7 +23,12 @@ const activePage = () => {
 }
 navLinks.forEach((link, idx) => {
     link.addEventListener('click', () => {
+
+        // 👉 mobile menu close
+        navbar.classList.remove('active');
+
         if (!link.classList.contains('active')) {
+
             activePage();
             link.classList.add('active');
 
@@ -71,6 +76,12 @@ arrowRight.addEventListener('click', () => {
     }
 
     activePortfolio();
+    currentIndex = 0;
+
+    const activeSlide = document.querySelector('.portfolio-details.active .img-slide');
+    if(activeSlide){
+        activeSlide.style.transform = "translateX(0)";
+    }
 });
 arrowLeft.addEventListener('click', () => {
     if (index > 1) {
@@ -83,12 +94,49 @@ arrowLeft.addEventListener('click', () => {
     }
 
     activePortfolio();
+    currentIndex = 0;
+
+    const activeSlide = document.querySelector('.portfolio-details.active .img-slide');
+    if(activeSlide){
+        activeSlide.style.transform = "translateX(0)";
+    }
 });
 
-// MENU TOGGLE WORKING CODE
+
+
 const menuIcon = document.querySelector('#menu-icon');
 const navbar = document.querySelector('.navbar');
 
 menuIcon.addEventListener('click', () => {
     navbar.classList.toggle('active');
 });
+
+
+
+
+
+
+// let currentIndex = 0;
+
+// function slideImages(){
+
+//     const active = document.querySelector('.portfolio-details.active');
+//     if(!active) return;
+
+//     const slide = active.querySelector('.img-slide');
+//     const items = active.querySelectorAll('.img-item');
+
+//     currentIndex++;
+
+//     if(currentIndex >= items.length){
+//         currentIndex = 0;
+//     }
+
+//     slide.style.transform = `translateX(-${currentIndex * 100}%)`;
+// }
+
+// setInterval(() => {
+//     if(window.innerWidth <= 768){
+//         slideImages();
+//     }
+// }, 2500);
