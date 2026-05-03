@@ -496,7 +496,7 @@ section.active{
 
 
 /* ================= MOBILE ================= */
-@media (max-width: 768px){
+@media (max-width: 700px){
 
     /* MENU ICON */
     #menu-icon{
@@ -543,7 +543,7 @@ section.active{
 
 
 /* ================= TABLET ================= */
-@media (min-width: 769px) and (max-width: 1024px){
+@media (min-width: 700px) and (max-width: 1024px){
 
     .home{
         flex-direction: column;
@@ -560,7 +560,7 @@ section.active{
     }
 
 }
-@media (max-width:768px){
+@media (max-width:700px){
 
     /* 🔥 Prevent entire page overflow */
     html, body{
@@ -628,7 +628,7 @@ section{
 
 /* ===== MOBILE ONLY ===== */
 
-@media (max-width:768px){
+@media (max-width:700px){
 
     .portfolio-carousel{
         width: 100%;
