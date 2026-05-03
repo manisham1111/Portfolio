@@ -263,11 +263,12 @@ section.active{
     overflow: hidden;
 }
 .home-img .img-box .img-item img{
+    position: absolute;
+    top:-5rem;
+    display: block;
     width: 100%;
-    height: 100%;
     object-fit: cover;
-    position: static;
-    mix-blend-mode: normal;
+    mix-blend-mode: lighten;
 }
 .heading{
     font-size: 4.5rem;
@@ -424,10 +425,10 @@ section.active{
     align-self: center;
 }
 .contact-box h2{
-    font-size: 4.5rem;
+    font-size: 3.5rem;
 }
 .contact-box p{
-    font-size: 2.6rem;
+    font-size: 2.2rem;
 }
 .contact-box .desc{
     margin: 1.5rem 0 2.5rem;
@@ -490,81 +491,171 @@ section.active{
     border-radius: 1rem;
     display: block;
 }
-/* ===== RESPONSIVE START ===== */
 
-@media (max-width: 992px) {
 
-    html {
-        font-size: 55%;
-    }
 
-    header {
-        padding: 2rem 5%;
-    }
 
-    section {
-        padding: 10rem 5% 2rem;
-    }
+/* ================= MOBILE ================= */
+@media (max-width: 768px){
 
-    .home {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .home-img .img-box {
-        width: 40vw;
-        height: 40vw;
-        margin-top: 3rem;
-    }
-
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-
-    #menu-icon {
+    /* MENU ICON */
+    #menu-icon{
         display: block;
+        font-size: 3rem;
         cursor: pointer;
     }
 
-    .navbar {
+    /* NAVBAR */
+    .navbar{
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background: var(--bg-color);
+        background: #202b3f;
         display: none;
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    .navbar.active{
+        display: flex;
+    }
+
+    .navbar a{
+        display: block;
+        margin: 1.5rem 0;
+    }
+
+    /* HOME SECTION */
+    .home{
         flex-direction: column;
         text-align: center;
     }
 
-    .navbar.active {
-        display: flex;
-    }
-
-    .navbar a {
-        display: block;
-        margin: 2rem 0;
-        font-size: 2rem;
-    }
-
-    .services-container {
-        grid-template-columns: 1fr;
-    }
-
-    .portfolio-carousel .img-item {
-        width: 100%;
-    }
-
-    .portfolio-carousel {
-        height: auto;
-    }
-
-    .contact-box .field-box {
-        grid-template-columns: 1fr;
+    /* IMAGE FIX */
+    .home-img .img-box{
+        width: 220px;
+        height: 220px;
+        margin-top: 2rem;
     }
 }
 
-/* ===== RESPONSIVE END ===== */
+
+/* ================= TABLET ================= */
+@media (min-width: 769px) and (max-width: 1024px){
+
+    .home{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-img .img-box{
+        width: 260px;
+        height: 260px;
+    }
+
+    .contact-container{
+        grid-template-columns: 1fr;
+    }
+
+}
+@media (max-width:768px){
+
+    /* 🔥 Prevent entire page overflow */
+    html, body{
+        overflow-x: hidden;
+    }
+
+    /* 🔥 Fix sections going outside screen */
+    section{
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        padding: 8rem 5% 2rem; /* reduce side padding */
+    }
+
+    /* 🔥 CONTACT FIX */
+    .contact-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .contact-box{
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .contact-box form{
+        width: 100%;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    .contact-box input,
+    .contact-box textarea{
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}
+section{
+    padding: 10rem 9% 2rem;
+}
+
+/* ===== ORIGINAL DESKTOP BACK ===== */
+
+.portfolio-carousel .img-slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.portfolio-carousel .img-item{
+    width: 350px;
+    height: 100%;
+    display: flex;
+}
+
+.portfolio-carousel .img-item img{
+    width: 110%;
+    height: 100%;
+    border-radius: 1rem;
+}
+
+/* ===== MOBILE ONLY ===== */
+
+@media (max-width:768px){
+
+    .portfolio-carousel{
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+    }
+
+    .portfolio-carousel .img-slide{
+        display: flex;
+        width: 100%;              /* 🔥 3 images = 300% */
+        height: 100%;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .portfolio-carousel .img-item{
+        width: 100%;              /* 🔥 equal width */
+        height: 100%;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .portfolio-carousel .img-item img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+}
